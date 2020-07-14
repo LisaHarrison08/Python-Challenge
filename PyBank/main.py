@@ -8,5 +8,12 @@ with open(csvpath) as csvfile:
     print(csvreader)
 
     for row in csvreader:
-        print(row)
+        #print(row)
+
+        #totalMonths = row[0]
+        #print(totalMonths)
+
+        # amountProfit = row[1]
+        # print(amountProfit)
+
 
