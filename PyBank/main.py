@@ -1,8 +1,25 @@
+#The total number of months in dataset
+#The net total amount of profit/losses over the netire period
+# ---- totalPl_amount = sum int(row[2])
+    #print (totalPl_amount)
+#The average of the changes in profit/losses over the entire period
+#--- def average (row[2])
+        #averageP_L =sum(row[2])/len(row[2])
+        #return averageP-L
+
+#The greatest increase in profits(data&amount) over entire period
+#The greatest decrease in losses(data&amount) over entire period
+
 import os
 import csv
 
 csvpath = "/Users/LmH80/Desktop/DataViz/Homework/Python-Challenge/PyBank/Resources/budget_data.csv"
 
+#Set the variables
+# numberMonths = 0
+totalAmount = 0
+
+#Read the csv file
 with open(csvpath) as budget:
     csvreader = csv.reader(budget, delimiter=',')
     print(csvreader)
@@ -15,23 +32,19 @@ with open(csvpath) as budget:
     csv_header=next(csvreader, None)
 
     for row in csvreader:
-        print(row[0])
-#calculate number of months in the data list
+        #print(row)
+        # months = row[0]
+        profitLoss = int(row[1])
+        # print(profitLoss)
 
 # calculate the total number of months
-    # for row in csvreader:
-    #     # months = row[0]
-    #     # totalMonths = len(months)
-    #     # print(totalMonths)
-    # #     totalMonths = len(row[0])
-    # #     print (totalMonths)
+        # numberMonths += months
+        # print (totalMonths)
 
-    #     # print(f"Number of months in data:  ,"(totalMonths))
-    #     months = row[0]
-    #     totalMonths = len(months)
-    #     print(totalMonths)
+#calculate the total amount profit/losses
+        totalAmount += int(profitLoss)
+print(totalAmount)
+        
 
-        # amountProfit = row[1]
-        # print(amountProfit)
 
 
