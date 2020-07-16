@@ -13,39 +13,38 @@
 import os
 import csv
 
-csvpath = os.path.join(r"/Users/LmH80/Desktop/DataViz/Homework/Python-Challenge/PyBank/Resources/budget_data.csv")
+csvpath = os.path.join(".","PyBank","Resources","budget_data.csv")
 
-# #Set the variables
-# # totalAmount = 0
-# totalMonths = 0
+#Set the variables
+totalAmount = 0
+totalMonths = 0
 
 #Read the csv file
 with open(csvpath) as budget:
     csvreader = csv.reader(budget, delimiter=',')
-    print(csvreader)
+    # print(csvreader)
 
 #run the following code to view the header values
-    csvheader = next(csvreader)
-    print(f'CSV_Header:{csvheader}')
+    # csvheader = next(csvreader)
+    # print(f'CSV_Header:{csvheader}')
 
 #run the following code to skip the header values
-    # csv_header=next(csvreader, None)
+    csv_header=next(csvreader, None)
 
-    # for row in csvreader:
+    for row in csvreader:
         #print(row)
          #months = row[0]
-        # totalMonths = totalMonths +1
-        # profitLoss = int(row[1])
-        # print(profitLoss)
+        totalMonths = totalMonths +1
+        profitLoss = int(row[1])
 
 # calculate the total number of months
         # numberMonths += months
         # print (totalMonths)
 
 #calculate the total amount profit/losses
-        # totalAmount += int(profitLoss)
-#print(f'The total number of months:{totalMonths}')
-#print(f'The total amount:{totalAmount}')       
+        totalAmount += int(profitLoss)
+print(f'The total number of months:{totalMonths}')
+print(f'The total amount:{totalAmount}')       
 
 
 
