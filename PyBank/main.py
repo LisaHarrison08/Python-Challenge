@@ -6,17 +6,19 @@
 
 import os
 import csv
-#defaultdict knows to expect integers as values and starts at 0
-# from collections import defaultdict
 
-csvpath = os.path.join(".","PyBank","Resources","budget_data.csv")
+csvpath = os.path.join(".", "PyBank","Resources","budget_data.csv")
+analysis = os.path.join(".", "PyBank","Resources","Analysis.txt")
 
-#Set the variables - later update to counts=defaultdict(int)?
+#Set the variables 
 totalAmount = 0
 totalMonths = 0
 profitLoss_change = 0
 profitLoss_prev = 0
 profitLoss_change = []
+profitLost_Total_Change = 0
+greatest_Inc = ['',0]
+greatest_Dec = ['',0]
 
 #Read the csv file and initialize DictReader for csv key value pairs
 with open(csvpath) as budget:
@@ -41,25 +43,40 @@ with open(csvpath) as budget:
         totalAmount += int(row["Profit/Losses"])
 
 #Track the changes in profit/losses over the entire period - += increments each PL row
-        profitLoss_prev += int(row["Profit/Losses"])
         profitLoss_change = int(row["Profit/Losses"]) - profitLoss_prev
+        if profitLoss_prev == 0:
+                profitLoss_change = 0
+        
+        profitLost_Total_Change += profitLoss_change
+        profitLoss_prev = int(row["Profit/Losses"])
 
-#Calculate the average of the changes in profit/losses over the entire period      
-        average = totalAmount/totalMonths
-# Round the average amount to two decimal places
-        average = round (average,2)
+# Greatest Increase
+        if profitLoss_change > greatest_Inc[1]:
+                greatest_Inc[0] = row['Date']
+                greatest_Inc[1] = profitLoss_change
+       
+# Greatest Decrease
+        if profitLoss_change < greatest_Dec[1]:
+                greatest_Dec[0] = row['Date']
+                greatest_Dec[1] = profitLoss_change
+       
+profitLoss_Total_Avg = profitLost_Total_Change/(totalMonths-1)
 
-# Do I need to track the months to then calculate the following and store in a list - months[] is this a calculation of greatest over the year or the entire data set?
+# Set print statements outside of loop to output totals
+output = ('\nFinancial Analysis'
+'\n----------------------------'        
+f'\nThe total number of months: {totalMonths}'
+f'\nThe total amount: ${totalAmount:,.2f}'       
+f'\nThe changes in Profit/Losses: ${profitLoss_Total_Avg:,.2f}'
+f'\nGreatest Increase in Profits: {greatest_Inc[0]} (${greatest_Inc[1]:,.2f})'
+f'\nGreatest Decrease in Profits: {greatest_Dec[0]} (${greatest_Dec[1]:,.2f})')
 
-#The greatest increase in profits(data&amount) over entire period
+print(output)
 
-#The greatest decrease in losses(data&amount) over entire period
+with open(analysis,'w') as output_text:
+        output_text.write(output)
 
-# Set print statements outside of loop to output totals        
-print(f'The total number of months:{totalMonths}')
-print(f'The total amount:{totalAmount}')       
-print(f'The changes in Profit/Losses:{profitLoss_change}')
-print(f'The average changes in Profit/Losses:{average}')
+
 
 
 
