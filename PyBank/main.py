@@ -23,6 +23,8 @@ with open(csvpath) as budget:
     csvreader = csv.DictReader(budget, delimiter=',')
     # print(csvreader)
 
+# Set file to output a written analysis to a text file
+
 #run the following code to view the header values
     # csvheader = next(csvreader)
     # print(f'CSV_Header:{csvheader}')
@@ -46,6 +48,9 @@ with open(csvpath) as budget:
         average = totalAmount/totalMonths
 # Round the average amount to two decimal places
         average = round (average,2)
+
+# Do I need to track the months to then calculate the following and store in a list - months[] is this a calculation of greatest over the year or the entire data set?
+
 #The greatest increase in profits(data&amount) over entire period
 
 #The greatest decrease in losses(data&amount) over entire period
@@ -56,5 +61,5 @@ print(f'The total amount:{totalAmount}')
 print(f'The changes in Profit/Losses:{profitLoss_change}')
 print(f'The average changes in Profit/Losses:{average}')
 
-# Set file to output analysis
+
 
