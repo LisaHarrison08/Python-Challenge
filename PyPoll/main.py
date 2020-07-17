@@ -2,8 +2,8 @@
 import os
 import csv
 
-csvpath = os.path.join(".","PyPoll","Resources","election_data.csv")
-pollAnalysis = os.path.join(".", "PyPoll","Resources","analysis.txt")
+csvpath = os.path.join("Resources","election_data.csv")
+pollAnalysis = os.path.join("Resources","analysis.txt")
 
 #Set the variables, list and dictionary
 totalVotes = 0
@@ -30,19 +30,22 @@ with open (csvpath) as csvfile:
         candidatesVote[name] += 1
 
 # print (candidatesList[0])
+# print(candidatesVote.keys())
+#Calculate the winner 
+    for key in candidatesVote.keys():
+        if candidatesVote[key] == max(candidatesVote.values()):
+            winner = key
+    # print(winner)
 
 output = (f'\nElection Results\n'
             '----------------------------------------\n'
+             f'Winner: {winner}\n'       
+            '----------------------------------------\n'
             f'The total number of votes: {totalVotes}\n'       
             '----------------------------------------\n')
-
 for name in candidatesList:
     output += f'{name}: {candidatesVote[name]/totalVotes*100:.3f}% ({candidatesVote[name]})\n'  
 print(output)
-
-print ('----------------------------------------')
-winner = candidatesList[0]
-print (f'Winner: {winner}')
 
 with open(pollAnalysis,'w') as output_text:
         output_text.write(output)
