@@ -1,8 +1,3 @@
-#  * The total number of votes cast
-#   * A complete list of candidates who received votes
-#   * The percentage of votes each candidate won
-#   * The total number of votes each candidate won
-#   * The winner of the election based on popular vote.
 
 import os
 import csv
@@ -10,10 +5,10 @@ import csv
 csvpath = os.path.join(".","PyPoll","Resources","election_data.csv")
 pollAnalysis = os.path.join(".", "PyPoll","Resources","analysis.txt")
 
-#Set the variables
+#Set the variables, list and dictionary
 totalVotes = 0
 candidatesList = []
-candidates = {}
+candidatesVote = {}
 
 with open (csvpath) as csvfile:
     csvreader=csv.DictReader(csvfile, delimiter=',')
@@ -25,22 +20,27 @@ with open (csvpath) as csvfile:
     #     print(row['Candidate'])
         totalVotes = totalVotes +1
     
-# Create a list of candidates who received votes
-        candidate = row['Candidate']
-        if candidate not in candidatesList:
-            candidatesList.append(candidate)
-            candidates[candidate] = 0
+# Create a list of candidates and number of received votes
+        name = row['Candidate']
+        if name not in candidatesList:
+            candidatesList.append(name)
+            candidatesVote[name] = 0
         
-        candidates[candidate] += 1
+        candidatesVote[name] += 1
 
+# print (candidatesList[0])
 output = (f'\nElection Results\n'
             '----------------------------------------\n'
             f'The total number of votes: {totalVotes}\n'       
             '----------------------------------------\n')
 
-for candidate in candidatesList:
-    output += f'{candidate}: {candidates[candidate]/totalVotes*100:.3f}% ({candidates[candidate]})\n'  
+for name in candidatesList:
+    output += f'{name}: {candidatesVote[name]/totalVotes*100:.3f}% ({candidatesVote[name]})\n'  
 print(output)
+print ('----------------------------------------')
+winner = candidatesList[0]
+print (f'Winner: {winner}')
+
 
 with open(pollAnalysis,'w') as output_text:
         output_text.write(output)
