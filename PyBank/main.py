@@ -20,8 +20,6 @@ with open(csvpath) as budget:
     csvreader = csv.DictReader(budget, delimiter=',')
     # print(csvreader)
 
-# Set file to output a written analysis to a text file
-
 #run the following code to view the header values
     # csvheader = next(csvreader)
     # print(f'CSV_Header:{csvheader}')

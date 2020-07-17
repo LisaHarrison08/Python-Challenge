@@ -13,8 +13,9 @@ candidatesVote = {}
 with open (csvpath) as csvfile:
     csvreader=csv.DictReader(csvfile, delimiter=',')
 
-#run the following code to skip the header values
-    # csv_header=next(csvreader, None)
+#run the following code to view the header values
+    # csvheader = next(csvreader)
+    # print(f'CSV_Header:{csvheader}')
 
     for row in csvreader:
     #     print(row['Candidate'])
@@ -41,8 +42,7 @@ print(output)
 
 print ('----------------------------------------')
 winner = candidatesList[0]
-(f'Winner: {winner}')
-print(winner)
+print (f'Winner: {winner}')
 
 with open(pollAnalysis,'w') as output_text:
         output_text.write(output)
