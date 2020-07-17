@@ -1,8 +1,3 @@
-#The total number of months in dataset
-#The net total amount of profit/losses over the netire period
-#The average of the changes in profit/losses over the entire period
-#The greatest increase in profits(data&amount) over entire period
-#The greatest decrease in losses(data&amount) over entire period
 
 import os
 import csv
