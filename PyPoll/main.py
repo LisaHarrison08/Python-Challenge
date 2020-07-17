@@ -29,6 +29,7 @@ with open (csvpath) as csvfile:
         candidatesVote[name] += 1
 
 # print (candidatesList[0])
+
 output = (f'\nElection Results\n'
             '----------------------------------------\n'
             f'The total number of votes: {totalVotes}\n'       
@@ -37,10 +38,11 @@ output = (f'\nElection Results\n'
 for name in candidatesList:
     output += f'{name}: {candidatesVote[name]/totalVotes*100:.3f}% ({candidatesVote[name]})\n'  
 print(output)
+
 print ('----------------------------------------')
 winner = candidatesList[0]
-print (f'Winner: {winner}')
-
+(f'Winner: {winner}')
+print(winner)
 
 with open(pollAnalysis,'w') as output_text:
         output_text.write(output)
