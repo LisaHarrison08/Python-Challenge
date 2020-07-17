@@ -2,8 +2,8 @@
 import os
 import csv
 
-csvpath = os.path.join(".", "PyBank","Resources","budget_data.csv")
-analysis = os.path.join(".", "PyBank","Resources","Analysis.txt")
+csvpath = os.path.join("Resources","budget_data.csv")
+analysis = os.path.join("Resources","Analysis.txt")
 
 #Set the variables 
 totalAmount = 0
