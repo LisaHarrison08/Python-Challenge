@@ -8,6 +8,7 @@ import os
 import csv
 
 csvpath = os.path.join(".","PyPoll","Resources","election_data.csv")
+pollAnalysis = os.path.join(".", "PyPoll","Resources","analysis.txt")
 
 #Set the variables
 totalVotes = 0
@@ -23,7 +24,7 @@ with open (csvpath) as csvfile:
     for row in csvreader:
     #     print(row['Candidate'])
         totalVotes = totalVotes +1
-
+    
 # Create a list of candidates who received votes
         candidate = row['Candidate']
         if candidate not in candidatesList:
@@ -38,6 +39,8 @@ output = (f'\nElection Results\n'
             '----------------------------------------\n')
 
 for candidate in candidatesList:
-    output += f'{candidate}: {candidates[candidate]/totalVotes*100:.3f}% ({candidates[candidate]})\n'
-
+    output += f'{candidate}: {candidates[candidate]/totalVotes*100:.3f}% ({candidates[candidate]})\n'  
 print(output)
+
+with open(pollAnalysis,'w') as output_text:
+        output_text.write(output)
