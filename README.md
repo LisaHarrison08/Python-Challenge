@@ -1,25 +1,23 @@
 # Python - PyBank and PyPoll
 
-## Background
 
-Complete **two** Python Challenges: PyBank and PyPoll.
-Both of these challenges encompassed real-world situations where Python scripting skills can come in handy. 
+Completed two Python scripts: PyBank and PyPoll.
 
 ## PyBank
 
 ![Revenue](Images/revenue-per-lead.png)
 
-* Created a Python script that analyzes the records which calculated each of the following:
+* Created a Python script that analyzed the records, which then calculated each of the following:
 
-  * The total number of months included in the dataset
+* The total number of months included in the dataset
 
-  * The net total amount of "Profit/Losses" over the entire period
+* The net total amount of "Profit/Losses" over the entire period
 
-  * The average of the changes in "Profit/Losses" over the entire period
+* The average of the changes in "Profit/Losses" over the entire period
 
-  * The greatest increase in profits (date and amount) over the entire period
+* The greatest increase in profits (date and amount) over the entire period
 
-  * The greatest decrease in losses (date and amount) over the entire period
+* The greatest decrease in losses (date and amount) over the entire period
 
 * As an example, the analysis looks similar to the one below:
 
@@ -38,19 +36,19 @@ Both of these challenges encompassed real-world situations where Python scriptin
 
 ![Vote Counting](Images/Vote_counting.png)
 
-* In this challenge, I was tasked with helping a small, rural town modernize its vote counting process.
+* Modernizing the vote counting process.
 
 * Created a Python script that analyzed the votes and calculated each of the following:
 
-  * The total number of votes cast
+* The total number of votes cast
 
-  * A complete list of candidates who received votes
+* Produced a complete list of candidates who received votes
 
-  * The percentage of votes each candidate won
+* Calcualted the percentage of votes each candidate won
 
-  * The total number of votes each candidate won
+* Calculated the total number of votes each candidate won
 
-  * The winner of the election based on popular vote.
+* Identified the winner of the election based on popular vote.
 
 * As an example, the analysis looks similar to the one below:
 
@@ -67,5 +65,5 @@ Both of these challenges encompassed real-world situations where Python scriptin
   Winner: Khan
   -------------------------
   ```
-* In addition, the final script should printed both the analysis to the terminal and exported a text file with the results.
+* In addition, the final script printed both the analysis to the terminal and exported a text file with the results.
 
